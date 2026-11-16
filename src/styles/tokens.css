@@ -1,0 +1,103 @@
+/* ============================================================
+   设计 token —— 数值取自 App Store 泄露源码 / 编译后 CSS
+   字体栈与颜色为苹果官方值；断点见 useViewport.ts 注释
+   ============================================================ */
+:root {
+  /* 字体栈（与苹果官网一致） */
+  --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'SF Pro Text',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* 暗色主题（App Store web 深色模式实测值） */
+  --bg: #000000;
+  --bg-sidebar: #161617;
+  --bg-card: #1c1c1e;
+  --bg-elevated: #2c2c2e;
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #98989d;
+  --text-tertiary: #636366;
+
+  --key-color: #0a84ff; /* 导航图标蓝 */
+  --green: #34c759;     /* 默认占位绿 */
+
+  /* 苹果实测：大圆角 17px、卡片阴影、页面 gutter（25 → 40） */
+  --radius-large: 17px;
+  --radius-icon: 12px;
+  --radius-button: 999px;
+  --shadow-small: 0 3px 9px rgba(0, 0, 0, 0.08);
+  --body-gutter: 25px;
+
+  /* 布局 */
+  --sidebar-width: 260px;
+  /* 侧栏手动收起后的图标轨道宽度 */
+  --sidebar-collapsed-width: 70px;
+  --content-max: 1940px;
+
+  /* 字阶（SF Pro，对应泄露码 --header/--title/--callout/--body） */
+  --text-page-title: 800 31px/1.16 var(--font-family);   /* "Today" 页标题 */
+  --text-card-title: 800 28px/1.12 var(--font-family);   /* 卡片大标题 */
+  --text-shelf-title: 700 22px/1.2 var(--font-family);   /* shelf 标题 */
+  --text-headline: 600 17px/1.23 var(--font-family);     /* lockup 名称 */
+  --text-body: 400 15px/1.35 var(--font-family);         /* 正文 */
+  --text-callout: 600 13px/1.3 var(--font-family);       /* 角标（大写） */
+  --text-footnote: 400 13px/1.35 var(--font-family);     /* 副标题 */
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --body-gutter: 40px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 4px;
+}

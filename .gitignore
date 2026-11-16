@@ -1,0 +1,10 @@
+node_modules/
+dist/
+
+# 本地环境变量
+.env
+.env.*
+!.env.example
+
+# 本地临时文件
+tmp/
