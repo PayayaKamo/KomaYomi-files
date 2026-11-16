@@ -6,7 +6,7 @@ KomaYomi 的 `.mnproj` 作品商店，纯静态站点。当前上架点兔、摇
 
 - 仓库：<https://github.com/PayayaKamo/KomaYomi-files>
 - 视觉沿用苹果 App Store 式设计语言（tokens.css / SidebarNav / PosterCard / SectionHeader /
-  PillButton / Artwork / HorizontalShelf / TodayCard）。
+  PillButton / Artwork / HorizontalShelf）。
 
 ## 技术栈
 
@@ -17,12 +17,13 @@ KomaYomi 的 `.mnproj` 作品商店，纯静态站点。当前上架点兔、摇
 
 | 路由 | 页面 |
 |------|------|
-| `/store` | 作品货架：精选大卡 + 全部作品横滑卡片，`?q=` 过滤作品名 / 原名 / 作者 / 标签 |
-| `/titles/:slug` | 作品详情：作品信息、下载主按钮、按卷折叠的章节目录、来源外链 |
+| `/store` | 作品货架：编辑精选小卡（三部作品统一海报卡）、分类标签、精选合集横滑、榜单、全部作品；`?q=` 过滤作品名 / 原名 / 作者 / 标签 |
+| `/titles/:slug` | 作品详情：头图与图标、下载主按钮、截图横滑、简介、信息表、评分与评论（示例）、按卷折叠的章节目录、版本历史 |
 | `/guide` | 使用指南：什么是 `.mnproj`、各平台入口、常见问题 |
 | `/` | 重定向到 `/store` |
 
-下载按钮只在作品包上架后可用；未上架时显示「准备中」并禁用。
+下载按钮只在作品包上架后可用；未上架时显示「准备中」并禁用。页面上的评分、评论、
+榜单、合集与编辑精选文案均为示例内容，界面上有对应小字说明。
 
 ## 数据维护
 

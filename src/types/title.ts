@@ -2,14 +2,16 @@
 
 /** 单话（只记录话号，未核实的章节标题不编造） */
 export interface ChapterRef {
-  number: number
+  /** 话号，保留小数（如 '132.1'） */
+  number: string
   /** 当前 .mnproj 包内实际收录该话 */
   packed?: boolean
 }
 
 /** 单卷及其章节列表 */
 export interface VolumeRef {
-  number: number
+  /** 卷号，保留半卷（如 '10.5'） */
+  number: string
   chapters: ChapterRef[]
 }
 
@@ -37,33 +39,86 @@ export interface Title {
   status: '连载中' | '已完结'
   summary: string
   tags: string[]
+  /** 话号编排说明（仅在源数据编号不连续时填写） */
+  chapterNote?: string
   /** 封面图（public/covers 下的路径） */
   cover: string
   /** 详情页主题色 / 占位色 */
   accentColor: string
-  /** 作品来源页（MangaDex） */
-  sourceUrl: string
   pack: PackInfo
   volumes: VolumeRef[]
+  /** 是否出现在「新上架」分类（示例标记） */
+  isNew: boolean
+  /** 商店展示信息（评分、评论、版本历史均为示例数据） */
+  store: StoreMeta
 }
 
-/** 首页大卡（沿用 App Store TodayCard 的视觉结构） */
+/** 详情页截图（作品内页图） */
+export interface Screenshot {
+  src: string
+  label: string
+}
+
+/** 示例评论：作者名统一用「示例读者」前缀，避免被当成真实用户评价 */
+export interface Review {
+  author: string
+  rating: number
+  date: string
+  title: string
+  text: string
+}
+
+/** 示例版本历史 */
+export interface ChangeEntry {
+  version: string
+  date: string
+  notes: string[]
+}
+
+export interface StoreMeta {
+  developer: string
+  /** 作品包版本（示例） */
+  version: string
+  /** 更新时间（示例） */
+  updatedAt: string
+  /** 评分 0–5（示例） */
+  rating: number
+  /** 评分人数（示例） */
+  ratingCount: number
+  /** 榜单热度，仅用于示例排序 */
+  popularity: number
+  /** 未上架时的估算体量（MB，示例） */
+  estimatedSizeMb: number
+  screenshots: Screenshot[]
+  reviews: Review[]
+  changelog: ChangeEntry[]
+}
+
+/** 首页精选合集 */
+export interface Collection {
+  id: string
+  title: string
+  subtitle: string
+  slugs: string[]
+}
+
+/** 榜单排序方式 */
+export type ChartSort = 'popularity' | 'chapters' | 'size'
+
+
+/** 首页「编辑精选」小卡 */
 export interface FeaturedCard {
   id: string
   /** 指向的作品 slug */
   slug: string
-  /** 角标，如「今日推荐」 */
+  /** 角标，如「编辑精选」 */
   heading: string
-  title: string
-  tagline: string
-  accentColor: string
-  style: 'light' | 'white'
-  mediaImage: string | null
-  /** 底部 lockup 展示的作品名 */
+  /** 压缩成一行的小卡短评 */
+  blurb: string
+  /** 作品名 */
   name: string
+  /** 卷号与话数范围 */
   subtitle: string
-  /** lockup 小图，缺省沿用 mediaImage */
-  iconImage: string | null
 }
 
 /** 占位图主题色色板（沿用苹果系统色） */

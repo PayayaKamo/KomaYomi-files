@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * 站点页脚 —— 相关链接多列网格 + 版权说明。
- * KomaYomi 各端仓库、文档站与作品来源集中在这里维护。
+ * KomaYomi 各端仓库与文档站集中在这里维护。
  */
 import { KOMAYOMI_LINKS } from '../../data/titles'
 
@@ -26,12 +26,6 @@ const LINK_GROUPS: { title: string; links: FooterLink[] }[] = [
       { label: '使用文档', url: KOMAYOMI_LINKS.docs },
       { label: '本站使用指南', to: '/guide' },
       { label: '作品商店', to: '/store' },
-    ],
-  },
-  {
-    title: '作品来源',
-    links: [
-      { label: 'MangaDex', url: 'https://mangadex.org/' },
     ],
   },
 ]
