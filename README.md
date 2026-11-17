@@ -67,7 +67,7 @@ npm run preview
   Vite 资源与 vue-router 的 history 都使用同一 base。
 - 构建后会把 `dist/index.html` 复制为 `dist/404.html`，用于详情页等深链接回退。
 - 首次部署需要在仓库 Settings → Pages 中把 Source 设为 **GitHub Actions**
-  （workflow 也会尝试自动启用）。
+  （GITHUB_TOKEN 没有创建 Pages 站点的权限，需要先手动启用一次）。
 
 部署到其他机器时保持默认根路径即可：
 
