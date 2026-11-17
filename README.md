@@ -56,3 +56,24 @@ npm run preview
 
 `dist/` 可直接托管在任意静态服务器；使用 history 路由，需要把未知路径回退到
 `index.html`（参考 [nginx.conf](nginx.conf) 的 `try_files` 配置）。
+
+### GitHub Pages
+
+仓库内置 [.github/workflows/deploy.yml](.github/workflows/deploy.yml)，推送到 `main`
+后会自动构建并发布到 GitHub Pages：
+
+- 地址：<https://payayakamo.github.io/KomaYomi-files/>
+- 项目站点挂在 `/KomaYomi-files/` 子路径下，workflow 通过 `VITE_BASE` 注入 base，
+  Vite 资源与 vue-router 的 history 都使用同一 base。
+- 构建后会把 `dist/index.html` 复制为 `dist/404.html`，用于详情页等深链接回退。
+- 首次部署需要在仓库 Settings → Pages 中把 Source 设为 **GitHub Actions**
+  （workflow 也会尝试自动启用）。
+
+部署到其他机器时保持默认根路径即可：
+
+```bash
+npm run build          # base 为 /
+# 若部署在子路径，构建时显式传入
+VITE_BASE=/sub-path/ npm run build
+```
+

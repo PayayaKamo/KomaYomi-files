@@ -3,6 +3,9 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig(({ command }) => ({
   plugins: [vue()],
+  // GitHub Pages 项目站点挂在 /<repo>/ 子路径下，由 workflow 注入 VITE_BASE；
+  // 本地与其他静态托管默认使用根路径。
+  base: process.env.VITE_BASE || '/',
   server: {
     port: 5273,
     strictPort: true,

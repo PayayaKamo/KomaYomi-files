@@ -25,6 +25,11 @@ import { PALETTE } from '../types/title'
 
 export const siteName = 'KomaYomi 商店'
 
+/** 拼上部署 base，保证子路径部署时封面、截图等静态资源可用 */
+function asset(path: string): string {
+  return `${import.meta.env.BASE_URL}${path}`
+}
+
 export const KOMAYOMI_LINKS = {
   desktop: 'https://github.com/PayayaKamo/KomaYomi',
   mobile: 'https://github.com/PayayaKamo/KomaYomi-mobile',
@@ -68,7 +73,7 @@ export const titles: Title[] = [
     tags: ['四格', '日常', '百合', '咖啡店'],
     chapterNote:
       '第 1–8 卷的话号按卷内编号记录，第 9 卷起为连续话号，两段编号不衔接，均照原始数据展示。',
-    cover: '/covers/gochiusa-14.jpg',
+    cover: asset('covers/gochiusa-14.jpg'),
     accentColor: PALETTE.orange,
     pack: {
       file: 'packs/gochiusa-14.mnproj',
@@ -102,9 +107,9 @@ export const titles: Title[] = [
       popularity: 9800,
       estimatedSizeMb: 28.6,
       screenshots: [
-        { src: '/screenshots/gochiusa-1.jpg', label: '第 172 话 · 内页 1' },
-        { src: '/screenshots/gochiusa-2.jpg', label: '第 172 话 · 内页 2' },
-        { src: '/screenshots/gochiusa-3.jpg', label: '第 172 话 · 内页 3' },
+        { src: asset('screenshots/gochiusa-1.jpg'), label: '第 172 话 · 内页 1' },
+        { src: asset('screenshots/gochiusa-2.jpg'), label: '第 172 话 · 内页 2' },
+        { src: asset('screenshots/gochiusa-3.jpg'), label: '第 172 话 · 内页 3' },
       ],
       reviews: [
         {
@@ -145,7 +150,7 @@ export const titles: Title[] = [
     summary:
       '废部边缘的娱乐部里，赤座灯里、岁纳京子、船见结衣、吉川千夏的放学后永远不会结束。第 24 卷仍然是四格短篇合集，对话密度高，适合逐句对照阅读。',
     tags: ['四格', '日常', '百合', '校园'],
-    cover: '/covers/yuruyuri-24.jpg',
+    cover: asset('covers/yuruyuri-24.jpg'),
     accentColor: PALETTE.pink,
     pack: {
       file: 'packs/yuruyuri-24.mnproj',
@@ -190,9 +195,9 @@ export const titles: Title[] = [
       popularity: 8600,
       estimatedSizeMb: 31.2,
       screenshots: [
-        { src: '/screenshots/yuruyuri-1.jpg', label: '第 199 话 · 内页 1' },
-        { src: '/screenshots/yuruyuri-2.jpg', label: '第 199 话 · 内页 2' },
-        { src: '/screenshots/yuruyuri-3.jpg', label: '第 199 话 · 内页 3' },
+        { src: asset('screenshots/yuruyuri-1.jpg'), label: '第 199 话 · 内页 1' },
+        { src: asset('screenshots/yuruyuri-2.jpg'), label: '第 199 话 · 内页 2' },
+        { src: asset('screenshots/yuruyuri-3.jpg'), label: '第 199 话 · 内页 3' },
       ],
       reviews: [
         {
@@ -229,7 +234,7 @@ export const titles: Title[] = [
     summary:
       '《摇曳百合》的外传，主角换成大室家三姐妹：樱子、抚子与花子。第 8 卷继续以短篇串联三姐妹的日常，节奏比本篇更松散，适合随手翻读。',
     tags: ['四格', '日常', '百合', '外传'],
-    cover: '/covers/oomuroke-08.jpg',
+    cover: asset('covers/oomuroke-08.jpg'),
     accentColor: PALETTE.purple,
     pack: {
       file: 'packs/oomuroke-08.mnproj',
@@ -258,9 +263,9 @@ export const titles: Title[] = [
       popularity: 7200,
       estimatedSizeMb: 19.4,
       screenshots: [
-        { src: '/screenshots/oomuroke-1.jpg', label: '第 106 话 · 内页 1' },
-        { src: '/screenshots/oomuroke-2.jpg', label: '第 106 话 · 内页 2' },
-        { src: '/screenshots/oomuroke-3.jpg', label: '第 106 话 · 内页 3' },
+        { src: asset('screenshots/oomuroke-1.jpg'), label: '第 106 话 · 内页 1' },
+        { src: asset('screenshots/oomuroke-2.jpg'), label: '第 106 话 · 内页 2' },
+        { src: asset('screenshots/oomuroke-3.jpg'), label: '第 106 话 · 内页 3' },
       ],
       reviews: [
         {
